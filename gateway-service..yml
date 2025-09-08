@@ -5,6 +5,7 @@ spring:
 jwt:
   secret: supersecreto-1234567890supersecreto-1234567890
 
+spring:
   cloud:
     gateway:
       discovery:
