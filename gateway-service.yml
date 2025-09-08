@@ -1,4 +1,3 @@
-# gateway-service.yml
 spring:
   application:
     name: gateway-service
@@ -10,14 +9,14 @@ cloud:
   gateway:
     discovery:
       locator:
-        enabled: false   # Si quieres usar rutas dinámicas con Eureka, poner true
+        enabled: false
     routes:
       - id: auth-service
         uri: lb://AUTH-SERVICE
         predicates:
           - Path=/security/**
         filters:
-          - StripPrefix=1
+          - StripPrefix=1   # o 0 según tu backend
 
       - id: inventario-service
         uri: lb://INVENTARIO-SERVICE
@@ -25,7 +24,7 @@ cloud:
           - Path=/inventario/**
         filters:
           - StripPrefix=1
-          - name: JwtAuthenticationFilter   # Nombre de tu filtro implementado
+          - name: JwtAuthenticationFilter
 
       - id: pedidos-service
         uri: lb://PEDIDOS-SERVICE
@@ -33,7 +32,7 @@ cloud:
           - Path=/pedido/**
         filters:
           - StripPrefix=1
-          - name: JwtAuthenticationFilter   # Nombre de tu filtro implementado
+          - name: JwtAuthenticationFilter
 
 eureka:
   client:
