@@ -5,38 +5,32 @@ spring:
 jwt:
   secret: supersecreto-1234567890supersecreto-1234567890
 
-spring:
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: false  # Usamos rutas manuales, no automáticas
-      routes:
-        # Ruta para AUTH (sin JWT)
-        - id: auth-service
-          uri: lb://auth-service
-          predicates:
-            - Path=/security/**
-          filters:
-            - StripPrefix=1
-
-        # Ruta para INVENTARIO (con JWT)
-        - id: inventario-service
-          uri: lb://inventario-service
-          predicates:
-            - Path=/inventario/**
-          filters:
-            - StripPrefix=1
-            - name: JwtAuthenticationFilter
-
-        # Ruta para PEDIDOS (con JWT)
-        - id: pedidos-service
-          uri: lb://pedidos-service
-          predicates:
-            - Path=/pedido/**
-          filters:
-            - StripPrefix=1
-            - name: JwtAuthenticationFilter
+cloud:
+  gateway:
+    discovery:
+      locator:
+        enabled: false
+    routes:
+      - id: auth-service
+        uri: lb://auth-service
+        predicates:
+          - Path=/security/**
+        filters:
+          - StripPrefix=1
+      - id: inventario-service
+        uri: lb://inventario-service
+        predicates:
+          - Path=/inventario/**
+        filters:
+          - StripPrefix=1
+          - name: JwtAuthenticationFilter
+      - id: pedidos-service
+        uri: lb://pedidos-service
+        predicates:
+          - Path=/pedido/**
+        filters:
+          - StripPrefix=1
+          - name: JwtAuthenticationFilter
 
 eureka:
   client:
