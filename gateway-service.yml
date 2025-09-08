@@ -15,8 +15,8 @@ cloud:
         uri: lb://auth-service
         predicates:
           - Path=/security/**
-        filters:
-          - StripPrefix=1
+        #filters:
+          #- StripPrefix=1
       - id: inventario-service
         uri: lb://inventario-service
         predicates:
