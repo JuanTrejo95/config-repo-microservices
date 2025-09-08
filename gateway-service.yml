@@ -17,20 +17,22 @@ cloud:
           - Path=/security/**
         filters:
           - StripPrefix=1
+
       - id: inventario-service
-        uri: lb://inventario-service
+        uri: lb://INVENTARIO-SERVICE
         predicates:
           - Path=/inventario/**
         filters:
           - StripPrefix=1
-          - name: JwtAuthenticationFilter
+          - JwtAuthenticationFilter
+
       - id: pedidos-service
-        uri: lb://pedidos-service
+        uri: lb://PEDIDOS-SERVICE
         predicates:
           - Path=/pedido/**
         filters:
           - StripPrefix=1
-          - name: JwtAuthenticationFilter
+          - JwtAuthenticationFilter
 
 eureka:
   client:
