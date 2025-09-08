@@ -11,12 +11,20 @@ cloud:
       locator:
         enabled: false
     routes:
+      # Ruta para AUTH (sin JWT)
       - id: auth-service
         uri: lb://auth-service
         predicates:
           - Path=/security/**
+<<<<<<< HEAD
         #filters:
           #- StripPrefix=1
+=======
+        filters:
+          - StripPrefix=1
+
+      # Ruta para INVENTARIO (con JWT)
+>>>>>>> 0de2129 (Arregla YAML para Spring Cloud Gateway con Config Server)
       - id: inventario-service
         uri: lb://inventario-service
         predicates:
@@ -24,6 +32,8 @@ cloud:
         filters:
           - StripPrefix=1
           - name: JwtAuthenticationFilter
+
+      # Ruta para PEDIDOS (con JWT)
       - id: pedidos-service
         uri: lb://pedidos-service
         predicates:
