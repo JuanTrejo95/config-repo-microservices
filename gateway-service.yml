@@ -16,7 +16,7 @@ cloud:
         predicates:
           - Path=/security/**
         filters:
-          - StripPrefix=1   # o 0 según tu backend
+          - StripPrefix=0   # o 0 según tu backend
 
       - id: inventario-service
         uri: lb://INVENTARIO-SERVICE
