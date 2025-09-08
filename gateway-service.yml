@@ -5,37 +5,34 @@ spring:
   application:
     name: gateway-service
 
-cloud:
-  gateway:
-    discovery:
-      locator:
-        enabled: false  # Rutas manuales
-    routes:
-      # Ruta para AUTH (sin JWT)
-      - id: auth-service
-        uri: lb://auth-service
-        predicates:
-          - Path=/security/**
-        filters:
-          - StripPrefix=0   # Mantiene /security en la ruta hacia el backend
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+      routes:
+        - id: auth-service
+          uri: lb://auth-service   # coincide con Eureka
+          predicates:
+            - Path=/security/**
+          filters:
+            - StripPrefix=1
 
-      # Ruta para INVENTARIO (con JWT)
-      - id: inventario-service
-        uri: lb://inventario-service
-        predicates:
-          - Path=/inventario/**
-        filters:
-          - StripPrefix=1
-          - name: JwtAuthenticationFilter
+        - id: inventario-service
+          uri: lb://inventario-service
+          predicates:
+            - Path=/inventario/**
+          filters:
+            - StripPrefix=1
+            - name: JwtAuthenticationFilter
 
-      # Ruta para PEDIDOS (con JWT)
-      - id: pedidos-service
-        uri: lb://pedidos-service
-        predicates:
-          - Path=/pedido/**
-        filters:
-          - StripPrefix=1
-          - name: JwtAuthenticationFilter
+        - id: pedidos-service
+          uri: lb://pedidos-service
+          predicates:
+            - Path=/pedido/**
+          filters:
+            - StripPrefix=1
+            - name: JwtAuthenticationFilter
 
 eureka:
   client:
