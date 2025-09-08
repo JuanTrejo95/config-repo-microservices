@@ -1,6 +1,6 @@
 spring:
   application:
-    name: pedido-service
+    name: pedidos-service
 
   datasource:
     url: jdbc:mysql://localhost:3306/pedidos?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
