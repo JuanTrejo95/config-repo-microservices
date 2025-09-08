@@ -2,6 +2,9 @@ spring:
   application:
     name: gateway-service
 
+jwt:
+  secret: supersecreto-1234567890supersecreto-1234567890
+
   cloud:
     gateway:
       discovery:
@@ -40,9 +43,6 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
-
-jwt:
-  secret: supersecreto-1234567890supersecreto-1234567890
 
 logging:
   level:
