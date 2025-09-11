@@ -41,8 +41,8 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
 
-jwt:
-  secret: supersecreto-1234567890supersecreto-1234567890
+#jwt:
+  #secret: supersecreto-1234567890supersecreto-1234567890
 
 logging:
   level:
