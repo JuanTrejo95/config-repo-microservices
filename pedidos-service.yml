@@ -3,9 +3,10 @@ spring:
     name: pedidos-service
 
   datasource:
-    url: jdbc:mysql://mysql-pedidos:3306/pedidos?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    #pedidos
+    url: jdbc:mysql://mysql-pedidos:3306/pedidosdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
-    password: admin
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
