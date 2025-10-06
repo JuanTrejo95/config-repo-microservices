@@ -3,9 +3,11 @@ spring:
     name: inventario-service
     
   datasource:
-    url: jdbc:mysql://mysql-inventario:3306/inventario?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    #localhost:3306/inventario
+    url: jdbc:mysql://mysql-inventario:3306/inventariodb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
-    password: admin
+    #admin
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
     
   jpa:
