@@ -4,7 +4,7 @@ spring:
 
   datasource:
   #localhost:3306/usuarios
-    url: jdbc:mysql://mysql-auth:3306/auth_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://mysql-auth:3306/authdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
     password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver
