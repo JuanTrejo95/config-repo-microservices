@@ -13,14 +13,14 @@ spring:
       routes:
         - id: auth-service
           #lb://auth-service   # coincide con Eureka
-          uri: lb://AUTH-SERVICE 
+          uri: lb://auth-service 
           predicates:
             - Path=/security/**
           filters:
             - StripPrefix=1
 
         - id: inventario-service
-          uri: lb://INVENTARIO-SERVICE
+          uri: lb://inventario-service
           #lb://inventario-service
           predicates:
             - Path=/inventario/**
@@ -29,7 +29,7 @@ spring:
             - name: JwtAuthenticationFilter
 
         - id: pedidos-service
-          uri: lb://PEDIDOS-SERVICE
+          uri: lb://pedidos-service
           #lb://pedidos-service
           predicates:
             - Path=/pedido/**
