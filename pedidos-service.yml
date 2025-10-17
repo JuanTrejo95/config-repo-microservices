@@ -6,7 +6,7 @@ spring:
     #pedidos
     url: jdbc:mysql://mysql-pedidos:3306/pedidosdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
-    password: root
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
